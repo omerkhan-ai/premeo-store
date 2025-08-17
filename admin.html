@@ -255,10 +255,10 @@ async function fetchAndDisplayOrders(searchQuery = '') {
         let fetchUrl;
         if (searchQuery) {
             // If there's a search query, use the search endpoint
-            fetchUrl = `http://localhost:3001/api/orders/search?query=${encodeURIComponent(searchQuery)}`;
+            fetchUrl = `https://premeo-backend.onrender.com/api/orders/search?query=${encodeURIComponent(searchQuery)}`;
         } else {
             // If no search query, fetch all orders using the original endpoint
-            fetchUrl = 'http://localhost:3001/api/orders';
+            fetchUrl = 'https://premeo-backend.onrender.com/api/orders';
         }
 
         // Use the determined URL for the fetch request
@@ -394,7 +394,7 @@ async function showOrderDetails(orderId) {
     orderDetailsContainer.style.display = 'block'; // Show details container
 
     try {
-        const response = await fetch(`http://localhost:3001/api/orders/${orderId}`); // Call new endpoint
+        const response = await fetch(`https://premeo-backend.onrender.com/api/orders/${orderId}`); // Call new endpoint
         if (!response.ok) {
             if (response.status === 404) {
                 throw new Error('Order not found on server.');
@@ -537,7 +537,7 @@ async function showOrderDetails(orderId) {
                 messageSpan.style.display = 'none';
 
                 try {
-                    const response = await fetch(`http://localhost:3001/api/orders/${orderId}/status`, {
+                    const response = await fetch(`https://premeo-backend.onrender.com/api/orders/${orderId}/status`, {
                         method: 'PUT',
                         headers: {
                             'Content-Type': 'application/json'
