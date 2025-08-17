@@ -3368,7 +3368,7 @@ if (placeOrderButtonElement) {
         alert("Placing your order...");
 
         // d. Send Data to Backend
-        fetch('https://premeo-backend.onrender.com', { method: 'POST',headers: {
+        fetch('https://premeo-backend.onrender.com/api/orders', { method: 'POST',headers: {
         'Content-Type': 'application/json'
             },
             body: JSON.stringify(orderData)
