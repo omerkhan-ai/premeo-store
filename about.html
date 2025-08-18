@@ -216,6 +216,95 @@
             font-weight: bold;
         }
 
+        /* Contact Form Styles */
+        .contact-form {
+            background: var(--dark-gray);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--light-gray);
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--gold);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 5px;
+            border: 1px solid var(--light-gray);
+            background: var(--black);
+            color: var(--white);
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .submit-btn {
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .form-message {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .form-message.success {
+            background: rgba(40, 167, 69, 0.2);
+            border: 1px solid #28a745;
+            color: #28a745;
+            display: block;
+        }
+
+        .form-message.error {
+            background: rgba(220, 53, 69, 0.2);
+            border: 1px solid #dc3545;
+            color: #dc3545;
+            display: block;
+        }
+
         /* Buttons */
         .btn {
             display: inline-block;
@@ -492,6 +581,10 @@
                 grid-template-columns: 1fr; /* Forces one column */
                 gap: 30px; /* Adjust gap as needed */
             }
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
         }
 
         @media (max-width: 768px) {
@@ -744,7 +837,7 @@
     <header>
         <div class="top-bar">
             <div class="container">
-                <p>Free Shipping on Orders Over PKR 15,000 | 30-Day Return Policy</p>
+                <p>Free Shipping on Orders Over PKR 95,000 | 30-Day Return Policy</p>
             </div>
         </div>
         <div class="container main-header">
@@ -756,10 +849,8 @@
                     <ul class="nav-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="index.html#products">Shop</a></li>
-                        <li><a href="#">Padel Rackets</a></li>
-                        <li><a href="#">Pickleball Rackets</a></li>
-                        <li><a href="#">Accessories</a></li>
-                        <li><a href="#">Deals</a></li>
+                       
+                        
                         <li><a href="about.html">About Us</a></li> <!-- Link to this page -->
                     </ul>
                 </nav>
@@ -814,6 +905,47 @@
                     <li>However, clients paying by debit/credit cards or by bank transfer can have a discount of PKR 1000 per purchase (minimum purchase PKR 6000.00).</li>
                 </ul>
             </div>
+            
+            <!-- Contact Form Section -->
+            <div class="about-section contact-form">
+                <h3>Contact Us</h3>
+                <p>Have questions or feedback? Reach out to us using the form below:</p>
+                
+                <div id="formMessage" class="form-message"></div>
+                
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" name="category">
+                            <option value="">Select a category</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="support">Customer Support</option>
+                            <option value="sales">Sales Question</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
         </div>
 
         <!-- Buttons -->
@@ -843,23 +975,19 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="index.html#products">Shop</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="#">Blog</a></li>
+                       
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Categories</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Padel Rackets</a></li>
-                        <li><a href="#">Pickleball Rackets</a></li>
-                        <li><a href="#">Balls</a></li>
-                        <li><a href="#">Grips & Accessories</a></li>
-                        <li><a href="#">Bags & Cases</a></li>
+                    
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i><span>daska road near city housing ,BOLA GEMA PAKISTAN</span></li>
+                        <li><i class="fas fa-map-marker-alt"></i><span>daska road near city housing ,sialkot</span></li>
                         <li><i class="fas fa-phone"></i><span>+92 300 8282223</span></li>
                         <li><i class="fas fa-envelope"></i><span>premeosports@gmail.com</span></li>
                     </ul>
@@ -911,6 +1039,49 @@
                         mobileSearchBar.querySelector('input').focus();
                     }
                 });
+            }
+            
+            // Contact Form Submission
+            const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(contactForm);
+                const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    subject: formData.get('subject'),
+                    category: formData.get('category'),
+                    message: formData.get('message')
+                };
+                
+                // Simulate form submission to backend
+                submitForm(data);
+            });
+            
+            function submitForm(data) {
+                // Show loading message
+                formMessage.className = 'form-message';
+                formMessage.textContent = 'Sending your message...';
+                formMessage.style.display = 'block';
+                
+                // Simulate API call to backend
+                setTimeout(() => {
+                    // Simulate success (in a real app, this would be an actual API call)
+                    const isSuccess = Math.random() > 0.2; // 80% success rate for demo
+                    
+                    if (isSuccess) {
+                        formMessage.className = 'form-message success';
+                        formMessage.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.';
+                        contactForm.reset();
+                    } else {
+                        formMessage.className = 'form-message error';
+                        formMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> Oops! Something went wrong. Please try again later.';
+                    }
+                }, 1500);
             }
         });
     </script>
