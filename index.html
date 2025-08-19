@@ -1318,14 +1318,26 @@
             .cart-sidebar {
                 width: 350px;
             }
+
+            .category-img{display: none;}
+            .categories{display: none;}
+            .categories-section .section-title {
+    display: none;
+  }
+            
             
         }
         
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
-                gap: 20px;
+                gap: 0px;
+                padding-top: 10px;
             }
+
+            .categories-section .section-title {
+    display: none;
+  }
           .search-bar {
         display: none; /* Hide desktop search on mobile */
         /* Or, make it minimal and always visible:
@@ -1336,6 +1348,13 @@
     }.nav-links {
         display: none;
     }
+
+    .category-info{
+        display: none;
+    }
+.categories{display: none;}
+
+    .category-img{display: none;}
             .hero h2 {
                 font-size: 40px;
             }
@@ -1365,12 +1384,23 @@
         /* Extra Small Devices (Phones, 576px and down) */
 @media (max-width: 576px) {
     .container {
-        width: 95%;
+        width: 70%;
+        height: 70%;
     }
-    
+    .category-info{
+        display: none;
+    }
+    .category-img{display: none;}
+    .categories{display: none;}
+    .categories-section .section-title {
+    display: none;
+  }
+    .se
     .header-content {
         flex-direction: column;
-        gap: 15px;
+        gap: 0px;
+        padding-top: 10px;
+        
     }
     .search-bar {
         margin: 10px 0;
@@ -1460,6 +1490,7 @@
         flex-direction: column;
         gap: 30px;
     }
+    
     .product-detail-image {
         height: 350px;
     }
@@ -1498,6 +1529,10 @@
     .nav-links {
         display: none;
     }
+    .category-info{display: none;}
+    .category-img{display: none;}
+    .categories{display: none;}
+    .categories-section .section-title {display: none; }
     .search-bar {
         display: none; /* Hide desktop search on mobile */
         /* Or, make it minimal and always visible:
@@ -1505,6 +1540,13 @@
         margin: 10px 0;
         width: 100%;
         */
+    }
+
+    .top-bar{
+        font-size: 5px;
+        padding: 4px;
+
+
     }
     .nav-links a {
         padding: 12px 15px;
@@ -1546,6 +1588,11 @@
     .product-detail-container {
         flex-direction: column;
     }
+    .category-img{display: none;}
+    .categories{display: none;}
+    .categories-section .section-title {display: none; }
+
+    .category-info{display: none;}
     .checkout-container {
         flex-direction: column;
     }
@@ -1576,6 +1623,10 @@
     .logo h1 {
         font-size: 28px;
     }
+    .category-img{display: none;}
+
+    .category-info{display: none;}
+    .categories-section .section-title {display: none; }
     .header-icons {
         gap: 15px;
     }
@@ -1670,6 +1721,7 @@
 .mobile-header-icons {
     display: none; /* Hidden on desktop */
     gap: 15px;
+    margin-bottom: -10px;
 }
 
 .menu-toggle {
@@ -1788,7 +1840,14 @@
         /* Allow wrapping for logo and icons */
         flex-wrap: wrap;
         position: relative; /* For absolute positioning of search bar if needed */
+        gap: 0px
+        ;
+        padding-top: 10px;
     }
+    .category-info{display: none;}
+    .category-img{display: none;}
+    .categories{display: none;}
+    .categories-section .section-title {display: none; }
 
     .search-bar {
         display: none; /* Hide desktop search on mobile */
@@ -1810,7 +1869,7 @@
 
     /* Optional: Make main header less tall on mobile */
     .main-header {
-        padding: 15px 0;
+        padding: 5px 0;
     }
 
     .logo h1 {
@@ -1819,7 +1878,7 @@
 
     /* Adjust other elements for better mobile spacing if needed */
     .top-bar {
-        font-size: 12px;
+        font-size: 5px;
         padding: 5px 0;
     }
 }
@@ -1834,13 +1893,10 @@
                 FREE SHIPPING ON ORDERS OVER PKR 19,000 | AUTHENTIC PRODUCTS | 30-DAY RETURNS
             </div>
         </div>
-        <div class="mobile-header-icons">
+       
     <div class="mobile-search-trigger icon-item">
         <i class="fas fa-search"></i>
-    </div>
-    <div class="menu-toggle icon-item" id="menu-toggle">
-        <i class="fas fa-bars"></i>
-    </div>
+  
 </div>
 
 <!-- Wrap existing nav -->
