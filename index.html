@@ -3880,9 +3880,11 @@ if (placeOrderButtonElement) {
 
                     // Format items for the email body
                     let itemsListForEmail = '';
-                    orderData.items.forEach(item => { // Use orderData.items which was sent
-                        itemsListForEmail += `${item.name} (${item.quality}) x ${item.quantity} @ PKR ${item.price.toLocaleString()} = PKR ${item.itemTotal.toLocaleString()}\n`;
-                    });
+cart.forEach(item => {
+    // Include selectedColor if it exists
+    const colorPart = item.selectedColor ? ` (${item.selectedColor})` : '';
+    itemsListForEmail += `${item.name}${colorPart} (${item.quality}) x ${item.quantity} @ PKR ${item.price.toLocaleString()} = PKR ${(item.price * item.quantity).toLocaleString()}\n`;
+});
 
                     // Prepare EmailJS parameters
                     // IMPORTANT: Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS Service ID and Template ID
