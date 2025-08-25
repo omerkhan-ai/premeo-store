@@ -3835,7 +3835,8 @@ if (placeOrderButtonElement) {
                 quality: item.quality,
                 quantity: item.quantity,
                 price: item.price,
-                itemTotal: item.price * item.quantity
+                itemTotal: item.price * item.quantity,
+                selectedColor: item.selectedColor // Include the selected color
             })),
             subtotal: parseFloat(document.getElementById('subtotal').textContent.replace('PKR ', '').replace(/,/g, '')) || 0,
             discount: parseFloat(document.getElementById('discount-amount')?.textContent?.replace('-PKR ', '')?.replace(/,/g, '') || '0') || 0,
