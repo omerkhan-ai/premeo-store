@@ -15,9 +15,7 @@
 
     <!-- Add this inside <head> or before </body> -->
     <!-- Corrected EmailJS SDK script tag (removed trailing spaces) -->
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" async></script>
 <script type="text/javascript">
    (function(){
       emailjs.init({
@@ -29,7 +27,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PREMEO - performance Padel & Pickleball Rackets</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<!-- Your existing Font Awesome link (keep it, but preload handles loading now) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --gold: #D4AF37;
@@ -2117,13 +2117,13 @@
   <div class="hero-slideshow">
     <!-- Add your desired hero images here. Make sure paths are correct. -->
     <div class="slide fade">
-      <div class="hero-slide" style="background-image: url('hero1.jpeg');"></div>
+      <div class="hero-slide" style="background-image: url('hero1.webp');"></div>
     </div>
     <div class="slide fade">
-      <div class="hero-slide" style="background-image: url('hero2.jpeg');"></div>
+      <div class="hero-slide" style="background-image: url('hero2.webp');"></div>
     </div>
     <div class="slide fade">
-      <div class="hero-slide" style="background-image: url('hero3.jpeg');"></div>
+      <div class="hero-slide" style="background-image: url('hero3.webp');"></div>
     </div>
     <!-- Add more slides as needed -->
   </div>
@@ -2200,7 +2200,7 @@
                 <!-- Product 1 - Attack 18k -->
                  <div class="product-card" data-category="padel" data-quality="attack">
                     <div class="product-img">
-                        <img src="images/padel/18k/main png.png" alt="Attack 18k Carbon Padel Racket">
+                        <img src="images/padel/18k/main png.webp" alt="Attack 18k Carbon Padel Racket">
                         <span class="product-badge">New</span>
                     </div>
                     <div class="product-info">
@@ -2217,7 +2217,7 @@
                 <!-- Product 2 - Advanced Pro -->
                 <div class="product-card" data-category="padel" data-quality="advanced-pro">
                     <div class="product-img">
-                        <img src="images/padel/advanced pro/main.png" alt="Advanced Pro 3k Carbon Padel Racket">
+                        <img src="images/padel/advanced pro/main.webp" alt="Advanced Pro 3k Carbon Padel Racket">
                         <span class="product-badge">Sale</span>
                     </div>
                     <div class="product-info">
@@ -2234,7 +2234,7 @@
                 <!-- Product 3 - Axion Match -->
                 <div class="product-card" data-category="padel" data-quality="axion-match">
                     <div class="product-img">
-                        <img src="images/padel/axion match/main.png" alt="Axion Match 50% Carbon 50% Glass Fiber">
+                        <img src="images/padel/axion match/main.webp" alt="Axion Match 50% Carbon 50% Glass Fiber">
                     </div>
                     <div class="product-info">
                         <div class="product-category">Padel Racket</div>
@@ -2250,7 +2250,7 @@
                 <!-- Product 4 - Avon Match -->
                 <div class="product-card" data-category="padel" data-quality="avon-match">
                     <div class="product-img">
-                        <img src="images/padel/avon match/main.png" alt="Avon Match 100% Glass Fiber">
+                        <img src="images/padel/avon match/main.webp" alt="Avon Match 100% Glass Fiber">
                     </div>
                     <div class="product-info">
                         <div class="product-category">Padel Racket</div>
@@ -2266,7 +2266,7 @@
                 <!-- Product 5 - Advanced Match Pickleball -->
                 <div class="product-card" data-category="pickleball" data-quality="advanced-match">
                     <div class="product-img">
-                        <img src="images/pickle/advanced match/main.png" alt="Advanced Match 100% Carbon Pickleball Racket">
+                        <img src="images/pickle/advanced match/main.webp" alt="Advanced Match 100% Carbon Pickleball Racket">
                         <span class="product-badge">Bestseller</span>
                     </div>
                     <div class="product-info">
@@ -2283,7 +2283,7 @@
                 <!-- Product 6 - Avon Match Pickleball -->
                 <div class="product-card" data-category="pickleball" data-quality="avon-match">
                     <div class="product-img">
-                        <img src="images/pickle/avon match/main.png" alt="Avon Match 100% Glass Pickleball Racket">
+                        <img src="images/pickle/avon match/main.webp" alt="Avon Match 100% Glass Pickleball Racket">
                     </div>
                     <div class="product-info">
                         <div class="product-category">Pickleball Racket</div>
