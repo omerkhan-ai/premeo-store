@@ -12,7 +12,7 @@
             --black: #0a0a0a;
             --dark-gray: #1a1a1a;
             --medium-gray: #2a2a2a;
-            --light-gray: #3a3a3a;
+            --light-gray: #dbdbdb; /* Changed from #3a3a3a */
             --white: #f5f5f5;
             --accent: #1e1e1e;
             --shadow: 0 8px 30px rgba(0,0,0,0.5);
@@ -26,14 +26,14 @@
         }
 
         body {
-            background-color: var(--black);
-            color: var(--white);
+            background-color: var(--white); /* Changed from var(--black) */
+            color: var(--black); /* Changed from var(--white) */
             line-height: 1.6;
         }
 
         /* Header Styles */
         header {
-            background-color: var(--black);
+            background-color: var(--white); /* Changed from var(--black) */
             box-shadow: var(--shadow);
             position: sticky;
             top: 0;
@@ -41,8 +41,8 @@
         }
 
         .top-bar {
-            background-color: var(--gold);
-            color: var(--black);
+            background-color: var(--light-gray); /* Changed from var(--gold) */
+            color: var(--black); /* Changed from var(--black) */
             padding: 8px 0;
             font-size: 14px;
             text-align: center;
@@ -61,10 +61,11 @@
         .logo h1 {
             font-size: 32px;
             font-weight: 700;
+            color: var(--black); /* Added */
         }
 
         .logo span {
-            color: var(--gold);
+            color: var(--medium-gray); /* Changed from var(--gold) */
         }
 
         .nav-links {
@@ -77,17 +78,17 @@
         }
 
         .nav-links a {
-            color: var(--white);
+            color: var(--black); /* Changed from var(--white) */
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease; /* Changed from color 0.3s ease */
             padding: 10px 15px;
             border-radius: 5px;
         }
 
         .nav-links a:hover {
-            background-color: var(--gold);
-            color: var(--black);
+            background-color: var(--black); /* Changed from var(--gold) */
+            color: var(--white); /* Changed from var(--black) */
         }
 
         .header-icons {
@@ -103,12 +104,12 @@
 
         .icon-item i {
             font-size: 24px;
-            color: var(--white);
+            color: var(--black); /* Changed from var(--white) */
             transition: color 0.3s ease;
         }
 
         .icon-item i:hover {
-            color: var(--gold);
+            color: var(--gold); /* Changed from var(--gold) */
         }
 
         .cart-count {
@@ -129,7 +130,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.9)), url('https://images.unsplash.com/photo-1548690312-e3b500d85941?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            background: linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.7)), url('https://images.unsplash.com/photo-1548690312-e3b500d85941?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             height: 400px;
             display: flex;
             align-items: center;
@@ -141,16 +142,15 @@
         .hero-content h2 {
             font-size: 48px;
             margin-bottom: 20px;
-            color: var(--white);
+            color: var(--white); /* Kept white for contrast */
         }
 
         .hero-content p {
             font-size: 20px;
             max-width: 700px;
             margin-bottom: 30px;
-            color: var(--white);
+            color: var(--white); /* Kept white for contrast */
         }
-
 
         /* Main Content */
         .container {
@@ -183,11 +183,11 @@
         }
 
         .about-section {
-            background: var(--dark-gray);
+            background: var(--light-gray); /* Changed from var(--dark-gray) */
             padding: 30px;
             border-radius: 10px;
             box-shadow: var(--shadow);
-            border: 1px solid var(--light-gray);
+            border: 1px solid var(--black); /* Changed from var(--light-gray) */
         }
 
         .about-section h3 {
@@ -218,11 +218,11 @@
 
         /* Contact Form Styles */
         .contact-form {
-            background: var(--dark-gray);
+            background: var(--light-gray); /* Changed from var(--dark-gray) */
             padding: 30px;
             border-radius: 10px;
             box-shadow: var(--shadow);
-            border: 1px solid var(--light-gray);
+            border: 1px solid var(--black); /* Changed from var(--light-gray) */
             margin-top: 20px;
         }
 
@@ -243,9 +243,9 @@
             width: 100%;
             padding: 12px 15px;
             border-radius: 5px;
-            border: 1px solid var(--light-gray);
-            background: var(--black);
-            color: var(--white);
+            border: 1px solid var(--black); /* Changed from var(--light-gray) */
+            background: var(--white); /* Changed from var(--black) */
+            color: var(--black); /* Changed from var(--white) */
             font-size: 16px;
         }
 
@@ -264,8 +264,8 @@
         }
 
         .submit-btn {
-            background: var(--gold);
-            color: var(--black);
+            background: var(--black); /* Changed from var(--gold) */
+            color: var(--white); /* Changed from var(--black) */
             border: none;
             padding: 15px 30px;
             border-radius: 5px;
@@ -278,7 +278,8 @@
         }
 
         .submit-btn:hover {
-            background: var(--white);
+            background: var(--gold); /* Changed from var(--white) */
+            color: var(--black); /* Added */
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
         }
@@ -309,8 +310,8 @@
         .btn {
             display: inline-block;
             padding: 15px 30px;
-            background: var(--gold);
-            color: var(--black);
+            background: var(--black); /* Changed from var(--gold) */
+            color: var(--white); /* Changed from var(--black) */
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
@@ -324,21 +325,22 @@
         }
 
         .btn:hover {
-            background: var(--white);
+            background: var(--gold); /* Changed from var(--white) */
+            color: var(--black); /* Added */
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
         }
 
         .btn-secondary {
             background: transparent;
-            border: 2px solid var(--gold);
-            color: var(--gold);
+            border: 2px solid var(--black); /* Changed from var(--gold) */
+            color: var(--black); /* Changed from var(--gold) */
             margin-left: 15px;
         }
 
         .btn-secondary:hover {
-            background: var(--gold);
-            color: var(--black);
+            background: var(--black); /* Changed from var(--gold) */
+            color: var(--white); /* Changed from var(--black) */
         }
 
         .btn-container {
@@ -349,9 +351,9 @@
 
         /* Footer */
         footer {
-            background: var(--dark-gray);
+            background: var(--light-gray); /* Changed from var(--dark-gray) */
             padding: 60px 0 30px;
-            border-top: 1px solid var(--light-gray);
+            border-top: 1px solid var(--black); /* Changed from var(--light-gray) */
         }
 
         .footer-grid {
@@ -362,13 +364,13 @@
         }
 
         .footer-column h3 {
-            color: var(--gold);
+            color: var(--black); /* Changed from var(--gold) */
             margin-bottom: 25px;
             font-size: 22px;
         }
 
         .footer-column p {
-            color: #aaa;
+            color: #777; /* Changed from #aaa */
             margin-bottom: 20px;
             line-height: 1.8;
         }
@@ -384,14 +386,15 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background: var(--medium-gray);
+            background: var(--medium-gray); /* Changed from var(--medium-gray) */
             color: var(--white);
             border-radius: 50%;
             transition: all 0.3s ease;
         }
 
         .social-links a:hover {
-            background: var(--gold);
+            background: var(--black); /* Changed from var(--gold) */
+            color: var(--white); /* Added */
             transform: translateY(-3px);
         }
 
@@ -404,13 +407,13 @@
         }
 
         .footer-links a {
-            color: #aaa;
+            color: #777; /* Changed from #aaa */
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: var(--gold);
+            color: var(--black); /* Changed from var(--gold) */
         }
 
         .contact-info {
@@ -421,11 +424,11 @@
             display: flex;
             align-items: flex-start;
             margin-bottom: 20px;
-            color: #aaa;
+            color: #777; /* Changed from #aaa */
         }
 
         .contact-info i {
-            color: var(--gold);
+            color: var(--black); /* Changed from var(--gold) */
             margin-right: 15px;
             font-size: 18px;
             min-width: 20px;
@@ -434,7 +437,7 @@
         .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid var(--light-gray);
+            border-top: 1px solid var(--black); /* Changed from var(--light-gray) */
             font-size: 15px;
             color: #777;
         }
@@ -460,7 +463,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: var(--dark-gray); /* Or var(--black) */
+            background-color: var(--light-gray); /* Changed from var(--dark-gray) */
             z-index: 1000;
             flex-direction: column;
             padding: 20px;
@@ -478,14 +481,14 @@
             align-items: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 1px solid var(--light-gray);
+            border-bottom: 1px solid var(--black); /* Changed from var(--light-gray) */
         }
 
         .menu-close {
             background: none;
             border: none;
             font-size: 40px;
-            color: var(--white);
+            color: var(--black); /* Changed from var(--white) */
             cursor: pointer;
             padding: 0;
             margin: 0;
@@ -513,7 +516,7 @@
             padding: 15px;
             font-size: 20px;
             margin-bottom: 12px;
-            color: var(--white);
+            color: var(--black); /* Changed from var(--white) */
         }
 
         /* Mobile Search Styles */
@@ -538,9 +541,9 @@
             width: 100%;
             padding: 14px 20px;
             border-radius: 30px;
-            border: 1px solid var(--light-gray);
-            background: var(--black); /* Darker for contrast */
-            color: var(--white);
+            border: 1px solid var(--black); /* Changed from var(--light-gray) */
+            background: var(--white); /* Changed from var(--black) */
+            color: var(--black); /* Changed from var(--white) */
             font-size: 16px;
         }
 
@@ -548,8 +551,8 @@
             position: absolute;
             right: 5px;
             top: 5px;
-            background: var(--gold);
-            color: var(--black);
+            background: var(--black); /* Changed from var(--gold) */
+            color: var(--white); /* Changed from var(--black) */
             border: none;
             padding: 9px 25px;
             border-radius: 30px;
@@ -742,8 +745,8 @@
                 width: 100%;
             }
             .product-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
             }
             .search-bar {
                 display: none; /* Hide desktop search on mobile */
@@ -849,9 +852,7 @@
                     <ul class="nav-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="index.html#products">Shop</a></li>
-                       
-                        
-                        <li><a href="about.html">About Us</a></li> <!-- Link to this page -->
+                        <li><a href="about.html">About Us</a></li>
                     </ul>
                 </nav>
                 <div class="header-icons">
@@ -951,7 +952,7 @@
         <!-- Buttons -->
         <div class="btn-container">
             <a href="index.html" class="btn">Back to Home</a>
-            <a href="index.html#contact" class="btn btn-secondary">Contact Us</a> <!-- Assumes a contact section on index.html -->
+            <a href="index.html#contact" class="btn btn-secondary">Contact Us</a>
         </div>
     </div>
 
@@ -975,13 +976,12 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="index.html#products">Shop</a></li>
                         <li><a href="about.html">About Us</a></li>
-                       
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Categories</h3>
                     <ul class="footer-links">
-                    
+                        <!-- Categories will be populated by JavaScript -->
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -1005,12 +1005,12 @@
             const menuToggle = document.getElementById('menu-toggle');
             const menuClose = document.getElementById('menu-close');
             const mobileMenuContainer = document.getElementById('mobile-menu-container');
-            const body = document.body; // To prevent background scroll
+            const body = document.body;
 
             if (menuToggle && mobileMenuContainer && menuClose) {
                 menuToggle.addEventListener('click', function() {
                     mobileMenuContainer.classList.add('active');
-                    body.classList.add('menu-open'); // Prevent background scroll
+                    body.classList.add('menu-open');
                 });
 
                 menuClose.addEventListener('click', function() {
@@ -1018,7 +1018,6 @@
                     body.classList.remove('menu-open');
                 });
 
-                // Optional: Close menu if clicking outside the menu content
                 mobileMenuContainer.addEventListener('click', function(e) {
                     if (e.target === mobileMenuContainer) {
                         mobileMenuContainer.classList.remove('active');
@@ -1034,7 +1033,6 @@
             if (mobileSearchTrigger && mobileSearchBar) {
                 mobileSearchTrigger.addEventListener('click', function() {
                     mobileSearchBar.classList.toggle('active');
-                    // Optional: Focus the input when it appears
                     if (mobileSearchBar.classList.contains('active')) {
                         mobileSearchBar.querySelector('input').focus();
                     }
@@ -1048,7 +1046,6 @@
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                // Get form data
                 const formData = new FormData(contactForm);
                 const data = {
                     name: formData.get('name'),
@@ -1058,20 +1055,16 @@
                     message: formData.get('message')
                 };
                 
-                // Simulate form submission to backend
                 submitForm(data);
             });
             
             function submitForm(data) {
-                // Show loading message
                 formMessage.className = 'form-message';
                 formMessage.textContent = 'Sending your message...';
                 formMessage.style.display = 'block';
                 
-                // Simulate API call to backend
                 setTimeout(() => {
-                    // Simulate success (in a real app, this would be an actual API call)
-                    const isSuccess = Math.random() > 0.2; // 80% success rate for demo
+                    const isSuccess = Math.random() > 0.2;
                     
                     if (isSuccess) {
                         formMessage.className = 'form-message success';
