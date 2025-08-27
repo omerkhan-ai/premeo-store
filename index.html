@@ -4014,6 +4014,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <!-- Existing scripts like Font Awesome, your main.js, etc. -->
    ><script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js" crossorigin="anonymous"></script> 
+    <script>
+    // Function to ping the backend and warm it up
+    function warmUpBackend() {
+        console.log("Attempting to warm up backend...");
+        // Replace with your actual backend URL or a specific ping endpoint
+        fetch('https://premeo-backend.onrender.com/api/ping') 
+            .then(response => {
+                if (response.ok) {
+                    console.log("Backend warm-up ping successful.");
+                } else {
+                    console.log("Backend warm-up ping returned status:", response.status);
+                }
+            })
+            .catch(error => {
+                // Silently handle errors to avoid user-facing issues
+                console.log("Backend warm-up ping failed (expected if /api/ping doesn't exist or during initial load):", error.message);
+                // Even a failed request can sometimes trigger the Render instance to start.
+            });
+    }
+
+    // Trigger the warm-up after the main page content has loaded
+    // Using DOMContentLoaded or window.onload ensures the main site is functional first
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', warmUpBackend);
+    } else {
+        // DOM is already loaded
+        warmUpBackend();
+    }
+</script>
     
 </body>
 </html>
