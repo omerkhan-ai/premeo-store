@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1378,6 +1377,26 @@
         .back-btn i {
             margin-right: 8px;
         }
+        /* Style for disabled payment methods */
+.payment-method.disabled {
+    opacity: 0.5; /* Make it semi-transparent */
+    cursor: not-allowed; /* Change cursor */
+    pointer-events: none; /* Prevent clicks */
+    /* Optional: Add a visual indicator */
+    position: relative;
+}
+.payment-method.disabled::after {
+    content: " (Temporarily Unavailable)";
+    position: absolute;
+    top: -15px;
+    right: -5px;
+    background-color: #888;
+    color: white;
+    font-size: 10px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    white-space: nowrap;
+}
 
         .payment-details {
             margin-top: 20px;
@@ -2399,10 +2418,10 @@
                         <h2>Payment Method</h2>
                         <div class="payment-methods">
                             <!-- Updated data-method attributes to match new options -->
-                            <div class="payment-method selected" data-method="card">
-                                <i class="fas fa-credit-card"></i>
-                                <div>Debit/Credit Card</div>
-                            </div>
+                            <div class="payment-method disabled selected" data-method="card">
+                                    <i class="fas fa-credit-card"></i>
+                                    <div>Debit/Credit Card</div>
+                           </div>
                            <div class="payment-method" data-method="bank">
     <i class="fas fa-university"></i>
     <div style="display: flex; flex-direction: column; align-items: center;">
@@ -3816,6 +3835,16 @@ if (placeOrderButtonElement) {
         // a. Get the selected payment method
         const selectedMethodElement = document.querySelector('.payment-method.selected');
         const selectedMethod = selectedMethodElement ? selectedMethodElement.dataset.method : 'card'; // Default to card
+        // --- NEW: Prevent order placement if Card is selected ---
+if (selectedMethod === 'card') {
+    alert('Debit/Credit Card payments are temporarily unavailable. Please select Bank Transfer or Cash on Delivery.');
+    console.warn('Order placement blocked: Card payment method is disabled.');
+    // Scroll the view to the payment methods section to highlight the issue
+    document.querySelector('.payment-methods')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Exit the function, preventing the rest of the order placement logic
+    return;
+    }
+    // --- END NEW ---
 
         // --- Prepare Customer Info (CORRECTED) ---
         const firstNameInput = document.getElementById('first-name');
@@ -4012,7 +4041,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </a>
 
     <!-- Existing scripts like Font Awesome, your main.js, etc. -->
-   ><script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js" crossorigin="anonymous"></script> 
+   <script src="https://kit.fontawesome.com/a1b2c3d4e5.js" crossorigin="anonymous"></script> 
     <script>
     // Function to ping the backend and warm it up
     function warmUpBackend() {
