@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | [Your Store Name]</title> <!-- Update -->
+    <meta name="description" content="Read the latest articles and guides on padel, pickleball, and sports equipment.">
+    <meta name="author" content="[Your Store Name]"> <!-- Update -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"> <!-- Update path if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css"> <!-- Link to your main stylesheet -->
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .blog-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .blog-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .blog-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #212529;
+        }
+        .blog-intro {
+            font-size: 1.2em;
+            color: #6c757d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .blog-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .blog-card-img {
+            width: 100%;
+            height: 200px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .blog-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .blog-card-info {
+            padding: 25px;
+        }
+        .blog-card-date {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+        .blog-card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+            color: #212529;
+        }
+        .blog-card h3 a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+        .blog-card h3 a:hover {
+            color: #007bff; /* Adjust link hover color */
+        }
+        .blog-card p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #495057;
+        }
+        .read-more-btn {
+            display: inline-block;
+            background-color: #212529; /* Use your theme's black */
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        .read-more-btn:hover {
+            background-color: #fff;
+            color: #212529;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+        .back-to-home {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #212529; /* Black text */
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            background-color: #e9ecef; /* Light gray background */
+            border: 1px solid #ced4da; /* Light border */
+        }
+        .back-to-home:hover {
+            background-color: #dee2e6; /* Slightly darker on hover */
+        }
+        .back-to-home i {
+            margin-right: 8px;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .blog-container {
+                margin: 20px;
+            }
+            .blog-title {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="blog-container">
+        <a href="/index.html" class="back-to-home"><i class="fas fa-arrow-left"></i> Back to Home</a> <!-- Adjust href to your main page -->
+
+        <header class="blog-header">
+            <h1 class="blog-title">Our Blog</h1>
+            <p class="blog-intro">Discover tips, guides, and the latest news in padel, pickleball, and sports equipment.</p>
+        </header>
+
+        <main class="blog-grid">
+            <!-- Blog Post Card 1 -->
+            <article class="blog-card">
+                <div class="blog-card-img">
+                    <img src="/hero1.webp" alt="Padel Racket Selection Guide"> <!-- Update with relevant image -->
+                </div>
+                <div class="blog-card-info">
+                    <p class="blog-card-date">Published on September-1-2025</p> <!-- Update date -->
+                    <h3><a href="/blog/the-ultimate-guide-to-choosing-the-perfect-padel-racket.html.html">Choosing the Right Padel Racket for Beginners</a></h3> <!-- Update link -->
+                    <p>Starting padel? Learn the key features to look for in your first racket.</p> <!-- Update excerpt -->
+                    <a href="/blog/the-ultimate-guide-to-choosing-the-perfect-padel-racket.html.html" class="read-more-btn">Read More</a> <!-- Update link -->
+                </div>
+            </article>
+
+            <!-- Blog Post Card 2 (The Ultimate Guide) -->
+            <article class="blog-card">
+                <div class="blog-card-img">
+                    <img src="/hero2.jpg" alt="Ultimate Padel Racket Guide Cover"> <!-- You need to create/add this image -->
+                </div>
+                <div class="blog-card-info">
+                    <p class="blog-card-date">Published on September 2, 2025</p> <!-- Update date -->
+                    <h3><a href="/blog/the-ultimate-guide-to-choosing-the-perfect-padel-racket.html">The Ultimate Guide to Choosing the Perfect Padel Racket</a></h3> <!-- Link to the new post -->
+                    <p>Master the art of selecting the ideal padel racket with this comprehensive guide covering shape, weight, balance, materials, and more.</p> <!-- Excerpt -->
+                    <a href="/blog/the-ultimate-guide-to-choosing-the-perfect-padel-racket.html" class="read-more-btn">Read More</a> <!-- Link to the new post -->
+                </div>
+            </article>
+
+            <!-- Add more blog cards here as you create more posts -->
+            <!--
+            <article class="blog-card">
+                <div class="blog-card-img">
+                    <img src="/images/placeholder-image.jpg" alt="Another Blog Post">
+                </div>
+                <div class="blog-card-info">
+                    <p class="blog-card-date">Published on June 1, 2024</p>
+                    <h3><a href="/blog/another-blog-post.html">Another Blog Post Title</a></h3>
+                    <p>A brief excerpt of the content...</p>
+                    <a href="/blog/another-blog-post.html" class="read-more-btn">Read More</a>
+                </div>
+            </article>
+            -->
+
+        </main>
+    </div>
+
+    <!-- Include any necessary scripts here if needed -->
+</body>
+</html>
