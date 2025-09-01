@@ -5,47 +5,43 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-<!-- Updated to include blog pages -->
 
 
 <url>
   <loc>https://premeopadel.com/</loc>
-  <lastmod>2025-08-26T03:48:34+00:00</lastmod>
+  <lastmod>2025-09-01T12:46:01+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://premeopadel.com/index.html</loc>
-  <lastmod>2025-08-26T10:25:09+00:00</lastmod>
+  <lastmod>2025-09-01T12:46:02+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://premeopadel.com/contact.html</loc>
-  <lastmod>2025-08-26T10:25:09+00:00</lastmod>
+  <lastmod>2025-09-01T12:46:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://premeopadel.com/blog/index.html</loc>
+  <lastmod>2025-09-01T12:46:02+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://premeopadel.com/about.html</loc>
-  <lastmod>2025-08-26T10:25:09+00:00</lastmod>
+  <lastmod>2025-09-01T12:46:02+00:00</lastmod>
   <priority>0.80</priority>
 </url>
-<!-- New Blog Pages -->
 <url>
-  <loc>https://premeopadel.com/blog/</loc>
-  <lastmod>2024-05-25T00:00:00+00:00</lastmod> <!-- Update date as needed -->
-  <priority>0.70</priority> <!-- Adjust priority as needed -->
+  <loc>https://premeopadel.com/blog/the-ultimate-guide-to-choosing-the-perfect-padel-racket.html.html</loc>
+  <lastmod>2025-09-01T12:46:02+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://premeopadel.com/blog/the-ultimate-guide-to-choosing-the-perfect-padel-racket.html</loc>
-  <lastmod>2024-05-25T00:00:00+00:00</lastmod> <!-- Update date as needed -->
-  <priority>0.60</priority> <!-- Adjust priority as needed -->
+  <loc>https://premeopadel.com/blog/blog2.html</loc>
+  <lastmod>2025-09-01T12:46:02+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
-<!-- Add more individual blog post URLs here as you create them -->
-<!--
-<url>
-  <loc>https://premeopadel.com/blog/another-blog-post.html</loc>
-  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
-  <priority>0.60</priority>
-</url>
--->
+
 
 </urlset>
