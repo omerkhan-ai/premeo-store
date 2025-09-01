@@ -1009,6 +1009,85 @@
             border-color: var(--black);
             transform: scale(1.05);
         }
+        /* --- Blog Preview Section Styles --- */
+.blog-preview {
+    padding: 60px 0;
+    background-color: var(--white); /* Ensure it matches your section background */
+}
+.blog-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+.blog-card {
+    background: var(--light-gray);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    border: 1px solid var(--light-gray);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.blog-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--black);
+}
+.blog-card-img {
+    width: 100%;
+    /* Maintain aspect ratio */
+    aspect-ratio: 16 / 9; /* Adjust ratio if needed */
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.blog-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the area */
+    transition: transform 0.3s ease;
+}
+.blog-card:hover .blog-card-img img {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+.blog-card-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.blog-card-date {
+    font-size: 14px;
+    color: var(--medium-gray);
+    margin-bottom: 10px;
+}
+.blog-card h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    flex-grow: 1; /* Pushes the excerpt down */
+}
+.blog-card h3 a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+.blog-card h3 a:hover {
+    color: var(--black); /* Adjust hover color if needed */
+}
+.blog-card p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    flex-grow: 1; /* Takes available space */
+}
+.blog-preview-cta {
+    text-align: center;
+    margin-top: 40px;
+}
+/* --- End Blog Preview Section Styles --- */
         .thumbnail img {
             max-width: 90%;
             max-height: 90%;
@@ -2511,6 +2590,46 @@
             </div>
         </div>
     </section>
+
+
+
+    <!-- Blog Preview Section -->
+<section class="blog-preview" id="blog-preview">
+    <div class="container">
+        <h2 class="section-title">Latest from the Blog</h2>
+        <div class="blog-preview-grid">
+            <!-- Blog Post Card 1 (Example - Link to your first post) -->
+            <article class="blog-card">
+                <div class="blog-card-img">
+                    <img src="/hero1.jpeg" loading="lazy" alt="Padel Racket Selection Guide"> <!-- Ensure this image exists -->
+                </div>
+                <div class="blog-card-info">
+                    <p class="blog-card-date">May 20, 2024</p>
+                    <h3><a href="/blog/choosing-the-right-padel-racket-for-beginners.html">Choosing the Right Padel Racket for Beginners</a></h3>
+                    <p>Starting padel? Learn the key features to look for in your first racket.</p>
+                </div>
+            </article>
+
+            <!-- Blog Post Card 2 (Example - Link to your second post) -->
+            <article class="blog-card">
+                <div class="blog-card-img">
+                    <img src="hero2.jpg" loading="lazy" alt="Ultimate Padel Racket Guide Cover"> <!-- Ensure this image exists -->
+                </div>
+                <div class="blog-card-info">
+                    <p class="blog-card-date">May 25, 2024</p>
+                    <h3><a href="/blog/the-ultimate-guide-to-choosing-the-perfect-padel-racket.html">The Ultimate Guide to Choosing the Perfect Padel Racket</a></h3>
+                    <p>Master the art of selecting the ideal padel racket with this comprehensive guide.</p>
+                </div>
+            </article>
+
+            <!-- Add more preview cards here if desired -->
+
+        </div>
+        <div class="blog-preview-cta">
+            <a href="/blog/index.html" class="btn btn-secondary" id="view-all-blog-posts">View All Posts</a>
+        </div>
+    </div>
+</section>
     <!-- Testimonials -->
     <section class="testimonials">
         <div class="container">
@@ -4070,6 +4189,28 @@ document.addEventListener('DOMContentLoaded', function() {
         // DOM is already loaded
         warmUpBackend();
     }
+
+    // --- Blog Preview Section JavaScript ---
+document.addEventListener('DOMContentLoaded', () => {
+    const viewAllBlogPostsBtn = document.getElementById('view-all-blog-posts');
+
+    if (viewAllBlogPostsBtn) {
+        viewAllBlogPostsBtn.addEventListener('click', (e) => {
+            // Optional: Uncomment the lines below if you want it to open in a new tab
+            // e.preventDefault();
+            // window.open('/blog/index.html', '_blank');
+
+            // Optional: Add smooth scrolling or other interactions here if needed
+            // For example, if the blog section was on the same page (it's not):
+            // const blogSection = document.getElementById('blog-section-id');
+            // if (blogSection) {
+            //     e.preventDefault();
+            //     blogSection.scrollIntoView({ behavior: 'smooth' });
+            // }
+        });
+    }
+});
+// --- End Blog Preview Section JavaScript ---
 </script>
     
 </body>
