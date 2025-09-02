@@ -312,6 +312,31 @@
     /* Ensure the text shadow is inherited or applied */
     /* text-shadow: inherit; */
 }
+
+        /* Add this CSS rule for the new Checkout button */
+.checkout-detail-btn {
+    flex: 1; /* Adjust flex value if needed for spacing relative to other buttons */
+    padding: 18px;
+    background: var(--white); 
+    color: var(--black); /* Contrast with background */
+
+
+    border: 2px solid var(--black); /* Or a border if you prefer */
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.checkout-detail-btn:hover {
+    background: var(--black); /* Hover effect */
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(44, 39, 39, 0.5); /* Adjust shadow color if needed */
+}
         .btn {
             display: inline-block;
             background-color: var(--black);
@@ -1165,7 +1190,7 @@
             transition: all 0.3s ease;
         }
         .color-option.active {
-            border-color: var(--gold);
+            border-color: var(--black);
             transform: scale(1.1);
         }
         .color-option.red { background-color: #e74c3c; }
@@ -1232,7 +1257,7 @@
             background: var(--white);
             color: var(--black);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 6px 20px rgba(70, 68, 63, 0.5);
         }
         .wishlist-detail {
             display: none;
@@ -1429,7 +1454,7 @@
             font-size: 16px;
         }
         .breadcrumb a {
-            color: var(--gold);
+            color: green;
             text-decoration: none;
         }
         .breadcrumb span {
@@ -2793,6 +2818,8 @@
                     </div>
                     <div class="action-buttons">
                         <button class="add-to-cart-detail" id="add-to-cart-detail">Add to Cart</button>
+                        <!-- NEW: Checkout button -->
+                        <button class="checkout-detail-btn" id="checkout-detail-btn">Buy Now</button>
                         <button class="wishlist-detail"><i class="far fa-heart"></i> open cart</button>
                     </div>
                 </div>
@@ -3341,7 +3368,7 @@ function updateCartDisplay() {
             notification.style.position = 'fixed';
             notification.style.bottom = '20px';
             notification.style.right = '20px';
-            notification.style.backgroundColor = 'var(--gold)';
+            notification.style.backgroundColor = 'var(--white)';
             notification.style.color = 'var(--black)';
             notification.style.padding = '15px 25px';
             notification.style.borderRadius = '5px';
@@ -3619,47 +3646,100 @@ function showProductDetail(product) {
     });
 
     // Ensure the "Add to Cart" button knows which product
- // ... (previous code inside showProductDetail)
+    addToCartDetail.dataset.id = product.id;
 
-// Set add to cart button data
-addToCartDetail.dataset.id = product.id;
+    // --- NEW: Add Event Listener for Add to Cart Button (INSIDE showProductDetail scope) ---
+    // This ensures `currentSelectedColor` is accessible
+    addToCartDetail.addEventListener('click', function handleAddToCart() {
+      const productId = parseInt(addToCartDetail.dataset.id);
+      const quantity = parseInt(detailQuantity.value) || 1;
+      const selectedColor = currentSelectedColor;
 
-// --- NEW: Add Event Listener for Add to Cart Button (INSIDE showProductDetail scope) ---
-// This ensures `currentSelectedColor` is accessible
-addToCartDetail.addEventListener('click', function handleAddToCart() {
-  const productId = parseInt(addToCartDetail.dataset.id);
-  const quantity = parseInt(detailQuantity.value) || 1;
-  
-  // `currentSelectedColor` is available here because this listener is defined inside `showProductDetail`
-  const selectedColor = currentSelectedColor;
+      console.log("Adding to cart:", { productId, quantity, selectedColor }); // Debug log
 
-  console.log("Adding to cart:", { productId, quantity, selectedColor }); // Debug log
+      if (productId && !isNaN(productId)) { // Basic check for valid ID
+        // Call the UPDATED addToCart function with ID, quantity, and selected color
+        addToCart(productId, quantity, selectedColor);
+        showNotification(`${product.name} added to cart!`);
+        // Optionally open the cart sidebar
+        cartSidebar.classList.add('active');
+        overlay.classList.add('active');
+        updateCartDisplay();
+      } else {
+        console.error("Invalid Product ID for Add to Cart button on detail page:", productId);
+        showNotification('Error adding item to cart.');
+      }
 
-  if (productId && !isNaN(productId)) { // Basic check for valid ID
-    // Call the UPDATED addToCart function with ID, quantity, and selected color
-    addToCart(productId, quantity, selectedColor);
-    showNotification(`${product.name} added to cart!`);
-    // Optionally open the cart sidebar
-    cartSidebar.classList.add('active');
+      // --- Remove this listener after it's used once to prevent duplicates ---
+      addToCartDetail.removeEventListener('click', handleAddToCart);
+    });
+    // --- END NEW ---
+
+    // Show detail page
+    productDetail.classList.add('active');
     overlay.classList.add('active');
-    updateCartDisplay();
-  } else {
-    console.error("Invalid Product ID for Add to Cart button on detail page:", productId);
-    showNotification('Error adding item to cart.');
-  }
-  
-  // --- Remove this listener after it's used once to prevent duplicates ---
-  // This is important because showProductDetail can be called multiple times
-  addToCartDetail.removeEventListener('click', handleAddToCart);
-});
-// --- END NEW ---
+    // Scroll to top of detail page
 
-// Show detail page
-productDetail.classList.add('active');
-overlay.classList.add('active');
-// Scroll to top of detail page
-window.scrollTo(0, 0);
-    // --- END KEEPING EXISTING LOGIC ---
+     const checkoutDetailBtn = document.getElementById('checkout-detail-btn');
+    if (checkoutDetailBtn) {
+        checkoutDetailBtn.addEventListener('click', function handleCheckoutDetail(e) {
+            // Prevent any default button behavior
+            e.preventDefault();
+
+            // Get the product ID, quantity, and selected color
+            const productId = parseInt(addToCartDetail.dataset.id);
+            const quantity = parseInt(detailQuantity.value) || 1;
+            // Access the currentSelectedColor from the closure of showProductDetail
+            const selectedColor = currentSelectedColor;
+
+            console.log("Buy Now clicked:", { productId, quantity, selectedColor }); // Debug log
+
+            if (productId && !isNaN(productId)) {
+                // 1. Add the item to the cart first (using your existing, updated addToCart function)
+                addToCart(productId, quantity, selectedColor);
+
+                // 2. Show notification that the item was added
+                const colorPart = selectedColor ? ` (${selectedColor})` : '';
+                showNotification(`${product.name}${colorPart} added to cart! Proceeding to checkout...`);
+
+                // 3. Close the product detail view
+                productDetail.classList.remove('active');
+                overlay.classList.remove('active');
+
+               // 4. Navigate directly to the checkout process
+                        updateCartDisplay(); // Update cart display
+// Hide the cart sidebar if it was open
+                        cartSidebar.classList.remove('active');
+                             // Show the checkout page
+                        checkoutPage.classList.add('active');
+// --- MODIFIED: Hide the overlay ---
+// The overlay should typically be hidden when the checkout page is the main active view,
+// not when a sidebar (like cart) is open over the main page.
+                     overlay.classList.remove('active');
+                       // --- END MODIFICATION ---
+                      // Populate the checkout summary with the updated cart contents
+                       populateCheckoutSummary();
+                // Reset payment method selection UI (if the function exists)
+                if (typeof resetPaymentMethodSelection === 'function') {
+                    resetPaymentMethodSelection();
+                }
+
+                // Scroll the page to the top of the checkout section
+                checkoutPage.scrollIntoView({ behavior: 'smooth' });
+
+            } else {
+                console.error("Invalid Product ID for Checkout button on detail page:", productId);
+                showNotification('Error preparing checkout. Please try again.');
+            }
+        });
+    }
+    window.scrollTo(0, 0);
+
+    // --- ADD THE NEW CHECKOUT BUTTON CODE HERE ---
+    // --- NEW: Event Listener for Checkout button on detail page ---
+   
+    // --- END NEW ---
+    // --- END ADDING NEW CODE ---
 }
         // Back to products
         backToProducts.addEventListener('click', (e) => {
