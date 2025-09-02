@@ -4079,7 +4079,14 @@ if (selectedMethod === 'card') {
                 selectedColor: item.selectedColor // Include the selected color
             })),
             subtotal: parseFloat(document.getElementById('subtotal').textContent.replace('PKR ', '').replace(/,/g, '')) || 0,
-            discount: parseFloat(document.getElementById('discount-amount')?.textContent?.replace('-PKR ', '')?.replace(/,/g, '') || '0') || 0,
+            discount: (function() {
+    // Get the currently selected payment method
+    const selectedMethodElement = document.querySelector('.payment-method.selected');
+    const selectedMethod = selectedMethodElement ? selectedMethodElement.dataset.method : 'card';
+    // Apply discount only if 'bank' is selected
+    return selectedMethod === 'bank' ? 1500 : 0;
+})(),
+// --- END MODIFIED ---
             shipping: 0, // Get from UI if applicable, currently assumed 0
             tax: 0,      // Get from UI if applicable, currently assumed 0
             total: parseFloat(document.getElementById('order-total').textContent.replace('PKR ', '').replace(/,/g, '')) || 0,
