@@ -4058,8 +4058,23 @@ if (selectedMethod === 'card') {
             alert("There was an error with the checkout form. Please try again.");
             return; // Stop execution if elements are missing
         }
+        // --- NEW: Validate Pakistani Phone Number ---
+const phoneNumber = phoneInput.value.trim();
+// Regex for common Pakistani mobile numbers:
+// - Starts with 03 followed by 9 digits (03XXXXXXXXX) OR
+// - Starts with +923 followed by 9 digits (+923XXXXXXXXX)
+const pakistaniPhoneRegex = /^(03\d{9}|\+923\d{9})$/;
 
-        const customerName = `${firstNameInput.value.trim()} ${lastNameInput.value.trim()}`.trim();
+if (!pakistaniPhoneRegex.test(phoneNumber)) {
+    alert("Please enter a valid Pakistani mobile number (e.g., 03001234567 or +923001234567).");
+    phoneInput.focus(); // Put focus back on the phone input field
+    return; // Stop the order placement process
+}
+// --- END NEW ---
+
+        // c. Prepare Customer Info (only if validation passes)
+const customerName = `${firstNameInput.value.trim()} ${lastNameInput.value.trim()}`.trim();
+
         // --- End Prepare Customer Info ---
 
         // b. Prepare Order Data (CORRECTED customerInfo part)
