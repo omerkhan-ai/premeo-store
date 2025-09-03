@@ -4027,6 +4027,11 @@ if (placeOrderButtonElement) {
     placeOrderButtonElement.addEventListener('click', () => {
         // --- START OF REPLACEMENT CODE FOR ORDER PROCESSING ---
 
+         const loadingOverlay = document.getElementById('order-processing-overlay');
+        if (loadingOverlay) {
+            loadingOverlay.style.display = 'flex'; // Show the overlay
+        }
+
         // a. Get the selected payment method
         const selectedMethodElement = document.querySelector('.payment-method.selected');
         const selectedMethod = selectedMethodElement ? selectedMethodElement.dataset.method : 'card'; // Default to card
@@ -4111,14 +4116,11 @@ const customerName = `${firstNameInput.value.trim()} ${lastNameInput.value.trim(
         }
 
         // c. Show a temporary message while processing
-        alert("Placing your order...");
+        //alert("Placing your order...");//
 
          // d. Show loading overlay and Send Data to Backend
         // --- NEW: Show loading overlay ---
-        const loadingOverlay = document.getElementById('order-processing-overlay');
-        if (loadingOverlay) {
-            loadingOverlay.style.display = 'flex'; // Show the overlay
-        }
+       
         // --- END NEW ---
 
         // d. Send Data to Backend
@@ -4135,7 +4137,7 @@ const customerName = `${firstNameInput.value.trim()} ${lastNameInput.value.trim(
         })
         .then(data => {
             console.log('Success:', data);
-            alert(data.message); // Show message from backend (e.g., "Order placed successfully...")
+            //alert(data.message);// // Show message from backend (e.g., "Order placed successfully...")
             if (loadingOverlay) {
                     loadingOverlay.style.display = 'none';
                 }
@@ -4226,15 +4228,17 @@ console.log("Debug - templateParams being sent:", templateParams);
             // window.location.href = 'confirmation.html'; // Example
         })
          .catch((error) => {
-            console.error('Error:', error);
-            // --- NEW: Hide loading overlay on error ---
-            if (loadingOverlay) {
-                loadingOverlay.style.display = 'none';
-            }
-            // --- END NEW ---
-            alert('There was an error placing your order: ' + error.message + '. Please try again.'); // Inform user
-            // Do NOT clear the cart if the backend call failed
-        });
+    console.error('Error:', error);
+    // --- NEW: Hide loading overlay on error ---
+    if (loadingOverlay) {
+        loadingOverlay.style.display = 'none';
+    }
+    // --- END NEW ---
+    // alert('There was an error placing your order...'); // <-- REMOVE THIS ALERT
+    // Optionally, show a more subtle notification or update a part of the checkout UI with the error
+    showNotification('Error placing order: ' + error.message); // Example using your existing notification function
+    // Do NOT clear the cart if the backend call failed
+});
         // --- END OF REPLACEMENT CODE FOR ORDER PROCESSING ---
     });
 } else {
