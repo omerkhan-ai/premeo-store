@@ -2179,11 +2179,7 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="top-bar">
-            <div class="container">
-                FREE SHIPPING ON ORDERS OVER PKR 19,000 | AUTHENTIC PRODUCTS | 30-DAY RETURNS
-            </div>
-        </div>
+        
        
     <div class="mobile-search-trigger icon-item">
         <i class="fas fa-search"></i>
@@ -4117,6 +4113,14 @@ const customerName = `${firstNameInput.value.trim()} ${lastNameInput.value.trim(
         // c. Show a temporary message while processing
         alert("Placing your order...");
 
+         // d. Show loading overlay and Send Data to Backend
+        // --- NEW: Show loading overlay ---
+        const loadingOverlay = document.getElementById('order-processing-overlay');
+        if (loadingOverlay) {
+            loadingOverlay.style.display = 'flex'; // Show the overlay
+        }
+        // --- END NEW ---
+
         // d. Send Data to Backend
         fetch('https://premeo-backend.onrender.com/api/orders', { method: 'POST',headers: {
         'Content-Type': 'application/json'
@@ -4132,6 +4136,9 @@ const customerName = `${firstNameInput.value.trim()} ${lastNameInput.value.trim(
         .then(data => {
             console.log('Success:', data);
             alert(data.message); // Show message from backend (e.g., "Order placed successfully...")
+            if (loadingOverlay) {
+                    loadingOverlay.style.display = 'none';
+                }
 
             // --- START OF RECEIPT EMAIL LOGIC ---
             // Only attempt to send receipt if order was placed successfully and we have an orderId
@@ -4147,6 +4154,8 @@ cart.forEach(item => {
     const colorPart = item.selectedColor ? ` (${item.selectedColor})` : '';
     itemsListForEmail += `${item.name}${colorPart} (${item.quality}) x ${item.quantity} @ PKR ${item.price.toLocaleString()} = PKR ${(item.price * item.quantity).toLocaleString()}\n`;
 });
+
+
 
                     // Prepare EmailJS parameters
                     // IMPORTANT: Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS Service ID and Template ID
@@ -4207,11 +4216,22 @@ console.log("Debug - templateParams being sent:", templateParams);
             if (overlay) {
                  overlay.classList.remove('active');
             }
+             if (data.orderId) {
+                    window.location.href = `order-confirmation.html?orderId=${data.orderId}`;
+                } else {
+                     console.error("Order ID missing from backend response, redirect failed.");
+                     // Optionally alert user or handle gracefully
+                }
             // Optionally redirect or show confirmation
             // window.location.href = 'confirmation.html'; // Example
         })
-        .catch((error) => {
+         .catch((error) => {
             console.error('Error:', error);
+            // --- NEW: Hide loading overlay on error ---
+            if (loadingOverlay) {
+                loadingOverlay.style.display = 'none';
+            }
+            // --- END NEW ---
             alert('There was an error placing your order: ' + error.message + '. Please try again.'); // Inform user
             // Do NOT clear the cart if the backend call failed
         });
@@ -4314,6 +4334,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 // --- End Blog Preview Section JavaScript ---
 </script>
-    
+    <!-- Loading Overlay -->
+<div id="order-processing-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 9999; display: none; justify-content: center; align-items: center; color: white; flex-direction: column;">
+    <div style="border: 5px solid #f3f3f3; border-top: 5px solid var(--gold); border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
+    <p style="font-size: 20px;">Processing your order, please wait...</p>
+</div>
+<style>
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
 </body>
 </html>
